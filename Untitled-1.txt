@@ -1,0 +1,3 @@
+Chatwootdocker run -d --name chatwoot \
+  -p 3000:3000 \
+  chatwoot/chatwoot  docker rm papercups-app papercups-db
