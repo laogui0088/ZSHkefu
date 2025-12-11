@@ -3,7 +3,7 @@ $(function () {
 
     window.chatwoot = {};
     // update the inbox identifier
-    chatwoot.inboxIdentifier = "j6HZk6EHxwgspGKvQBjgr9G5"
+    chatwoot.inboxIdentifier = "3K9EQKmdEhNBdqTJy9RiCaov"
     chatwoot.chatwootAPIUrl = "http://kefu.ouyhui.icu/public/api/v1/"
 
     // for better performance - to avoid searching in DOM
