@@ -8,56 +8,28 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Microsoft YaHei', sans-serif;
-      background: linear-gradient(135deg, #e53935 0%, #c62828 100%);
+      background: #f5f5f5;
       min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
     }
 
-    .welcome-card {
-      background: white;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-      text-align: center;
-      max-width: 400px;
+    /* 让聊天窗口全屏 */
+    .woot-widget-holder {
+      max-height: 100vh !important;
+      height: 100vh !important;
+      max-width: 100vw !important;
+      width: 100vw !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      border-radius: 0 !important;
     }
 
-    .welcome-card .icon {
-      font-size: 60px;
-      margin-bottom: 20px;
-    }
-
-    .welcome-card h1 {
-      color: #c62828;
-      margin-bottom: 10px;
-      font-size: 24px;
-    }
-
-    .welcome-card p {
-      color: #666;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .welcome-card .hint {
-      background: #fff3e0;
-      padding: 15px;
-      border-radius: 8px;
-      color: #e65100;
-      font-size: 14px;
+    /* 隐藏聊天气泡按钮 */
+    .woot-widget-bubble {
+      display: none !important;
     }
   </style>
 </head>
 <body>
-  <div class="welcome-card">
-    <div class="icon">⛽</div>
-    <h1>中石化在线客服</h1>
-    <p>欢迎来到中石化客服中心<br>点击右下角的聊天按钮开始对话</p>
-    <div class="hint">💬 请点击右下角的聊天图标</div>
-  </div>
 
   <!-- Chatwoot SDK -->
   <script>
@@ -71,7 +43,12 @@
         window.chatwootSDK.run({
           websiteToken: '3K9EQKmdEhNBdqTJy9RiCaov',
           baseUrl: BASE_URL
-        })
+        });
+        
+        // 等待 SDK 初始化完成后自动打开聊天窗口
+        window.addEventListener('chatwoot:ready', function() {
+          window.$chatwoot.toggle('open');
+        });
       }
     })(document, "script");
   </script>
